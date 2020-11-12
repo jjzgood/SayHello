@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block app_content %}
+    {% include 'sayhello.html' %}
+    {% import 'bootstrap/wtf.html' as wtf %}
+    {{ wtf.quick_form(form) }}
+<hr>
+<div>
+    <h4>
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        共有{{ messages|length }}条留言
+    </h4>
+</div>
+{% for message in messages %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+      {{ message.name }}
+      <small class="text-muted">#{{ loop.revindex }}</small>
+      <small class="text-muted pull-right" data-placement="top" data-toggle="popover"
+             title="{{ message.timestamp|format_time }}">
+          {{ moment(message.timestamp).fromNow(refresh=True) }}
+      </small>
+  </div>
+  <div class="panel-body">
+    {{ message.body }}
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

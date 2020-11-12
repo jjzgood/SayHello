@@ -1,0 +1,6 @@
+flask
+flask-bootstrap
+flask_sqlalchemy
+flask_wtf
+flask_moment
+Flask-Limiter
