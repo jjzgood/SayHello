@@ -11,7 +11,7 @@ def timedelta_time(date):
     return date.strftime('%Y-%m-%d %H:%M:%S')
 
 
-# @limiter.limit("5 per day")
+@limiter.limit("100/day;100/hour;5/minute")
 @app.route('/',methods=['GET','POST'])
 def index():
     messages = Message.query.order_by(Message.timestamp.desc()).all()
