@@ -1,6 +1,8 @@
 import os
 
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class BaseConfig:
     SECRET_KEY = '!@#$EFQE3kd_*3393'
